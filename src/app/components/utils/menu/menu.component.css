@@ -1,0 +1,16 @@
+.example-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  width: 200px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
