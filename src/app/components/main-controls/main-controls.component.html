@@ -1,1 +1,155 @@
-<p>main-controls works!</p>
+<div class="main-controls-container" fxLayout="column" fxLayoutAlign="start stretch">
+  <!-- Program Control Section -->
+  <mat-card class="program-controls">
+    <mat-card-title>Program Controls</mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Program</mat-label>
+        <input matInput [(ngModel)]="programName">
+      </mat-form-field>
+      <div class="buttons-group" fxLayout="row" fxLayoutAlign="start center">
+        <button mat-raised-button color="primary" (click)="loadProgram()">Load</button>
+        <button mat-raised-button color="accent" (click)="newProgram()">New Prog</button>
+        <button mat-raised-button color="primary" (click)="startProgram()">Start</button>
+        <button mat-raised-button color="warn" (click)="stopProgram()">Stop</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Speed and Acceleration Control Section -->
+  <mat-card class="speed-controls">
+    <mat-card-title>Speed and Acceleration Controls</mat-card-title>
+    <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="control-group">
+        <mat-form-field>
+          <mat-label>Speed</mat-label>
+          <input matInput type="number" [(ngModel)]="speed">
+        </mat-form-field>
+        <mat-slider min="0" max="100" step="1">
+          <input matSliderThumb [(ngModel)]="speed">
+        </mat-slider>
+      </div>
+
+      <div class="control-group">
+        <mat-form-field>
+          <mat-label>Acceleration</mat-label>
+          <input matInput type="number" [(ngModel)]="acceleration">
+        </mat-form-field>
+        <mat-slider min="0" max="100" step="1">
+          <input matSliderThumb [(ngModel)]="acceleration">
+        </mat-slider>
+      </div>
+
+      <div class="control-group">
+        <mat-form-field>
+          <mat-label>Deceleration</mat-label>
+          <input matInput type="number" [(ngModel)]="deceleration">
+        </mat-form-field>
+        <mat-slider min="0" max="100" step="1">
+          <input matSliderThumb [(ngModel)]="deceleration">
+        </mat-slider>
+      </div>
+
+      <div class="control-group">
+        <mat-form-field>
+          <mat-label>Ramp</mat-label>
+          <input matInput type="number" [(ngModel)]="ramp">
+        </mat-form-field>
+        <mat-slider min="0" max="100" step="1">
+          <input matSliderThumb [(ngModel)]="ramp">
+        </mat-slider>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Joint Control Section -->
+  <mat-card class="joint-controls">
+    <mat-card-title>Joint Control</mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutAlign="start stretch">
+      <div class="joint-slider" *ngFor="let joint of joints" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{ joint.name }}</span>
+        <!-- Updated mat-slider structure -->
+        <mat-slider class="slider" min="-180" max="180" step="1">
+          <input matSliderThumb [(ngModel)]="joint.angle">
+        </mat-slider>
+        <div class="joint-buttons">
+          <button mat-icon-button color="primary" (click)="increaseAngle(joint)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="decreaseAngle(joint)">
+            <mat-icon>remove</mat-icon>
+          </button>
+        </div>
+        <span class="angle-display">{{ joint.angle }}°</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <!-- Position Control Section -->
+  <mat-card class="position-controls">
+    <mat-card-title>Position and Rotation Control</mat-card-title>
+    <mat-card-content>
+      <div class="position-controls" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="position-axis" *ngFor="let axis of ['x', 'y', 'z', 'rx', 'ry', 'rz']">
+          <span>{{ axis.toUpperCase() }}</span>
+          <mat-form-field>
+            <input matInput [(ngModel)]="position[getAxis(axis)]" />
+          </mat-form-field>
+          <div class="position-buttons">
+            <button mat-icon-button color="primary" (click)="incrementPosition(getAxis(axis))">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="decrementPosition(getAxis(axis))">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <!-- Logic Control Section -->
+  <mat-card class="logic-controls">
+    <mat-card-title>Logic Control</mat-card-title>
+    <mat-card-content>
+      <div class="logic-inputs" fxLayout="row" fxLayoutAlign="space-between center">
+        <!-- Dropdown for Condition Type -->
+        <mat-form-field>
+          <mat-label>Condition Type</mat-label>
+          <mat-select [(ngModel)]="conditionType">
+            <mat-option *ngFor="let type of conditionTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Input Field for the Logic Condition -->
+        <mat-form-field>
+          <mat-label>Condition</mat-label>
+          <input matInput [(ngModel)]="logicCondition" placeholder="e.g., input 1 = 0">
+        </mat-form-field>
+
+        <!-- Insert IF Command Button -->
+        <button mat-raised-button color="primary" (click)="insertIfCommand()">Insert IF CMD</button>
+      </div>
+
+      <!-- Logic Buttons -->
+      <div class="logic-buttons" fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-raised-button color="primary" (click)="waitInputOn()">Wait Input ON</button>
+        <button mat-raised-button color="accent" (click)="waitInputOff()">Wait Input OFF</button>
+        <button mat-raised-button color="primary" (click)="setOutputOn()">Set Output ON</button>
+        <button mat-raised-button color="warn" (click)="setOutputOff()">Set Output OFF</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <!-- Special Command Section -->
+  <mat-card class="special-commands">
+    <mat-card-title>Special Commands</mat-card-title>
+    <mat-card-content>
+      <div class="special-buttons" fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-raised-button color="primary" (click)="playGCode()">Play GCode</button>
+        <button mat-raised-button color="primary" (click)="cameraOn()">Camera On</button>
+        <button mat-raised-button color="warn" (click)="cameraOff()">Camera Off</button>
+        <button mat-raised-button color="accent" (click)="autoCalibrate()">Auto Calibrate CMD</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
