@@ -1,16 +1,21 @@
-
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="row">
-    <div class="col">
-      <img
-        ngSrc="assets/images/logo.png"
-        height="214"
-        width="190"
-        style="float: left"
-        priority alt="Logo"
-      />
-    </div>
-
+<mat-toolbar color="primary">
+  <!-- Logo à gauche -->
+  <div class="logo-container">
+    <img
+      ngSrc="assets/images/logo.png"
+      height="21"
+      width="19"
+      priority
+      alt="Logo"
+    />
   </div>
-</div>
 
+  <!-- Nom de l'application au centre -->
+  <span class="app-title">Robot AR4 Interface</span>
+
+  <!-- Statut de connexion à droite -->
+  <span class="spacer"></span>
+  <span class="connection-status" [ngClass]="{ 'online': isConnected, 'offline': !isConnected }">
+    {{ isConnected ? 'Connecté' : 'Déconnecté' }}
+  </span>
+</mat-toolbar>

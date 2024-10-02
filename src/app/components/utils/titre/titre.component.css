@@ -1,0 +1,24 @@
+.logo-container {
+  margin-right: 16px;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.connection-status {
+  font-weight: 500;
+}
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}
