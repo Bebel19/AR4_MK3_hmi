@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {FlexModule} from "@angular/flex-layout";
 
 @Component({
   selector: 'app-inputs-outputs',
@@ -28,6 +29,7 @@ import { CommonModule } from '@angular/common';
     MatToolbarModule,
     MatIconModule,
     MatExpansionModule,
+    FlexModule,
   ],
   templateUrl: './inputs-outputs.component.html',
   styleUrls: ['./inputs-outputs.component.scss'],
