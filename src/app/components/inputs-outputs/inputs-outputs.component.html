@@ -1,0 +1,41 @@
+<!-- Conteneur principal avec deux colonnes -->
+<div fxLayout="row" fxLayoutAlign="space-around center" class="container">
+    <!-- Colonne 1 : Contrôle des Servomoteurs -->
+    <div fxFlex="45%">
+      <mat-card class="io-card">
+        <mat-card-title>Contrôle des Servomoteurs</mat-card-title>
+        <mat-card-content>
+          <div *ngFor="let servo of servos" class="servo-control">
+            <span>{{ servo.name }}</span>
+            <button mat-raised-button color="{{ servo.state === 'ON' ? 'accent' : 'warn' }}" (click)="toggleServoState(servo)">
+              {{ servo.state }}
+            </button>
+            <mat-form-field>
+              <mat-label>Position</mat-label>
+              <input matInput [(ngModel)]="servo.position">
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!-- Colonne 2 : Contrôle des Sorties Numériques -->
+    <div fxFlex="45%">
+      <mat-card class="io-card">
+        <mat-card-title>Contrôle des Sorties Numériques</mat-card-title>
+        <mat-card-content>
+          <div *ngFor="let output of digitalOutputs" class="output-control">
+            <span>{{ output.name }}</span>
+            <button mat-raised-button color="{{ output.state === 'ON' ? 'primary' : 'warn' }}" (click)="toggleOutputState(output)">
+              {{ output.state }}
+            </button>
+            <mat-form-field>
+              <mat-label>Broche</mat-label>
+              <input matInput [(ngModel)]="output.pinNumber">
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

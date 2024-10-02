@@ -4,6 +4,7 @@ import { ConfigSettingsComponent } from './components/config-settings/config-set
 import { KinematicsComponent } from './components/kinematics/kinematics.component';
 import { VisionComponent } from './components/vision/vision.component';
 import { GcodeComponent } from './components/gcode/gcode.component';
+import { InputsOutputsComponent } from './components/inputs-outputs/inputs-outputs.component';
 
 export const routes: Routes = [
   { path: 'main-controls', component: MainControlsComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'kinematics', component: KinematicsComponent },
   { path: 'vision', component: VisionComponent },
   { path: 'gcode', component: GcodeComponent },
+  { path: 'inputs-outputs', component: InputsOutputsComponent },
   { path: '', redirectTo: '/main-controls', pathMatch: 'full' },
 ];
