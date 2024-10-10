@@ -32,6 +32,7 @@ export class MenuComponent {
     { label: 'Kinematics', path: 'kinematics' },
     { label: 'G-code', path: 'gcode' },
     { label: 'Vision', path: 'vision' },
+    { label: 'Registers', path: 'registers' },
   ];
 
   constructor(private router: Router) {}
