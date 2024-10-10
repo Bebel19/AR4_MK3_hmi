@@ -3,7 +3,7 @@ import { MainControlsComponent } from './components/main-controls/main-controls.
 import { ConfigSettingsComponent } from './components/config-settings/config-settings.component';
 import { KinematicsComponent } from './components/kinematics/kinematics.component';
 import { VisionComponent } from './components/vision/vision.component';
-import { GcodeComponent } from './components/gcode/gcode.component';
+import { GCodeComponent } from './components/gcode/gcode.component';
 import {RegistersComponent} from './components/registers/registers.component';
 
 export const routes: Routes = [
@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'config-settings', component: ConfigSettingsComponent },
   { path: 'kinematics', component: KinematicsComponent },
   { path: 'vision', component: VisionComponent },
-  { path: 'gcode', component: GcodeComponent },
+  { path: 'gcode', component: GCodeComponent },
   { path: 'registers', component: RegistersComponent},
   { path: '', redirectTo: '/main-controls', pathMatch: 'full' },
 ];

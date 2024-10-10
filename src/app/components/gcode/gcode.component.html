@@ -1,1 +1,53 @@
-<p>gcode works!</p>
+<div class="main-container">
+
+  <div class="content">
+    <section class="left-panel">
+      <button>Load Program</button>
+
+      <div class="position-controls">
+        <h3>Set Start Position</h3>
+        <div class="position-inputs">
+          <input type="text" placeholder="324.414" />
+          <input type="text" placeholder="81.585" />
+          <input type="text" placeholder="159.248" />
+          <input type="text" placeholder="-164.528" />
+          <input type="text" placeholder="88.324" />
+          <input type="text" placeholder="-161.517" />
+          <input type="text" placeholder="N" />
+        </div>
+      </div>
+
+      <div class="offset-controls">
+        <h3>Start Position Offset</h3>
+        <input type="text" placeholder="0" />
+        <input type="text" placeholder="0" />
+        <input type="text" placeholder="20" />
+        <input type="text" placeholder="0" />
+        <input type="text" placeholder="0" />
+      </div>
+
+      <button>Move to Start Offset</button>
+
+      <div class="file-controls">
+        <input type="text" placeholder="Filename" />
+        <button>Convert & Upload to SD</button>
+        <button>Stop Conversion & Upload</button>
+        <button>Delete File from SD</button>
+        <button>Read Files from SD</button>
+      </div>
+
+      <button class="play-btn">Play Gcode File</button>
+      <button>SAVE DATA</button>
+    </section>
+
+    <section class="gcode-panel">
+      <h2>GCODE IDLE</h2>
+      <textarea readonly></textarea>
+      <div class="current-row">
+        <label for="current-row">Current Row:</label>
+        <input type="text" id="current-row" />
+      </div>
+    </section>
+  </div>
+</div>
+

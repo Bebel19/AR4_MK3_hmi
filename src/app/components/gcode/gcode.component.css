@@ -1,0 +1,51 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav button {
+  margin: 5px;
+}
+
+.content {
+  display: flex;
+  margin-top: 20px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.position-inputs input,
+.offset-controls input {
+  margin: 5px 0;
+}
+
+.play-btn {
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
+
+.gcode-panel {
+  flex-grow: 1;
+  border-left: 2px solid #ccc;
+  padding-left: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.current-row {
+  margin-top: 10px;
+}
