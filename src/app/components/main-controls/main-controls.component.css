@@ -1,0 +1,51 @@
+.joint-controls {
+  margin-top: 20px;
+}
+
+.joint-slider {
+  margin-bottom: 10px;
+}
+
+.joint-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.angle-display {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.slider {
+  width: 300px;
+  margin: 0 10px;
+}
+.logic-controls {
+  margin-top: 20px;
+}
+
+.logic-inputs {
+  margin-bottom: 10px;
+}
+
+.logic-buttons {
+  margin-top: 10px;
+}
+.special-commands {
+  margin-top: 20px;
+}
+
+.special-buttons {
+  margin-top: 10px;
+  gap: 15px;
+}
+.angle-display {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.position-value {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #1e88e5;
+}

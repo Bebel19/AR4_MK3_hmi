@@ -1,1 +1,115 @@
-<p>kinematics works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between start" class="container">
+
+  <!-- Colonne de Gauche : Motor Direction, Calibration Dir -->
+  <div fxFlex="20" class="left-section">
+    <mat-card class="io-card">
+      <mat-card-title>Motor Direction</mat-card-title>
+      <mat-card-content>
+        <div *ngFor="let motor of motorDirections; let i = index">
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Motor Dir</mat-label>
+            <input matInput [(ngModel)]="motor.direction">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="io-card">
+      <mat-card-title>Calibration Direction</mat-card-title>
+      <mat-card-content>
+        <div *ngFor="let calibration of calibrations; let i = index">
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Calibration Dir</mat-label>
+            <input matInput [(ngModel)]="calibration.direction">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Colonne Centrale : Position Limits, Step/Deg & Encoder CPR -->
+  <div fxFlex="30" class="center-section">
+    <mat-card class="io-card">
+      <mat-card-title>Position Limits</mat-card-title>
+      <mat-card-content>
+        <div *ngFor="let joint of positionLimits; let i = index">
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Neg Limit</mat-label>
+            <input matInput [(ngModel)]="joint.negLimit">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Pos Limit</mat-label>
+            <input matInput [(ngModel)]="joint.posLimit">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="io-card">
+      <mat-card-title>Step/Deg & Encoder CPR</mat-card-title>
+      <mat-card-content>
+        <div *ngFor="let encoder of encoderSettings; let i = index">
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Step/Deg</mat-label>
+            <input matInput [(ngModel)]="encoder.stepDeg">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>J{{ i + 1 }} Encoder CPR</mat-label>
+            <input matInput [(ngModel)]="encoder.encoderCPR">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Colonne Droite : DH Parameters, Tool Frame Offset, Boutons -->
+  <div fxFlex="40" class="right-section">
+    <mat-card class="io-card">
+      <mat-card-title>DH Parameters</mat-card-title>
+      <mat-card-content>
+        <div *ngFor="let dh of dhParameters">
+          <mat-form-field>
+            <mat-label>{{ dh.joint }} DH-Θ</mat-label>
+            <input matInput [(ngModel)]="dh.theta">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ dh.joint }} DH-α</mat-label>
+            <input matInput [(ngModel)]="dh.alpha">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ dh.joint }} DH-d</mat-label>
+            <input matInput [(ngModel)]="dh.d">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ dh.joint }} DH-a</mat-label>
+            <input matInput [(ngModel)]="dh.a">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="io-card">
+      <mat-card-title>Tool Frame Offset</mat-card-title>
+      <mat-card-content>
+        <div class="tool-offset">
+          <mat-form-field><mat-label>X</mat-label><input matInput [(ngModel)]="toolFrameOffset.x"></mat-form-field>
+          <mat-form-field><mat-label>Y</mat-label><input matInput [(ngModel)]="toolFrameOffset.y"></mat-form-field>
+          <mat-form-field><mat-label>Z</mat-label><input matInput [(ngModel)]="toolFrameOffset.z"></mat-form-field>
+          <mat-form-field><mat-label>Rx</mat-label><input matInput [(ngModel)]="toolFrameOffset.rx"></mat-form-field>
+          <mat-form-field><mat-label>Ry</mat-label><input matInput [(ngModel)]="toolFrameOffset.ry"></mat-form-field>
+          <mat-form-field><mat-label>Rz</mat-label><input matInput [(ngModel)]="toolFrameOffset.rz"></mat-form-field>
+        </div>
+        <mat-checkbox [(ngModel)]="disableWristRotation">Disable Wrist Rotation</mat-checkbox>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="buttons-container">
+      <button mat-raised-button (click)="loadDefaults('AR4-MK3')">Load AR4-MK3 Defaults</button>
+      <button mat-raised-button (click)="loadDefaults('AR4-MK2')">Load AR4-MK2 Defaults</button>
+      <button mat-raised-button (click)="loadDefaults('AR4')">Load AR4 Defaults</button>
+      <button mat-raised-button (click)="loadDefaults('AR3')">Load AR3 Defaults</button>
+      <button mat-raised-button color="primary" (click)="saveSettings()">SAVE</button>
+    </div>
+  </div>
+
+</div>
