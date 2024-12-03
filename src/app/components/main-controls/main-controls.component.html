@@ -150,6 +150,65 @@
       </div>
     </mat-card-content>
   </mat-card>
+  <!-- Joint Control Section -->
+<mat-card class="joint-controls">
+  <mat-card-title>Joint Control</mat-card-title>
+  <mat-card-content fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="joint-slider" *ngFor="let joint of joints" fxLayout="row" fxLayoutAlign="space-between center">
+      <span>{{ joint.name }}</span>
+      <mat-slider class="slider" min="-180" max="180" step="1" [(ngModel)]="joint.angle"></mat-slider>
+      <span class="angle-display">{{ joint.angle }}°</span> <!-- Ajout de l'affichage de l'angle -->
+      <div class="joint-buttons">
+        <button mat-icon-button color="primary" (click)="increaseAngle(joint)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="decreaseAngle(joint)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<!-- Position Control Section -->
+<mat-card class="position-controls">
+  <mat-card-title>Position and Rotation Control</mat-card-title>
+  <mat-card-content>
+    <div class="position-controls" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="position-axis" *ngFor="let axis of ['x', 'y', 'z', 'rx', 'ry', 'rz']">
+        <span>{{ axis.toUpperCase() }}</span>
+        <mat-form-field>
+          <input matInput [(ngModel)]="position[getAxis(axis)]" />
+        </mat-form-field>
+        <span class="position-value">{{ position[getAxis(axis)] }}</span> <!-- Ajout de l'affichage des valeurs -->
+        <div class="position-buttons">
+          <button mat-icon-button color="primary" (click)="incrementPosition(getAxis(axis))">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="decrementPosition(getAxis(axis))">
+            <mat-icon>remove</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Special Command Section -->
+<mat-card class="special-commands">
+  <mat-card-title>Special Commands</mat-card-title>
+  <mat-card-content>
+    <div class="special-buttons" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-raised-button color="primary" (click)="playGCode()">Play GCode</button>
+
+      <!-- Camera Button with state change -->
+      <button mat-raised-button [color]="isCameraOn ? 'primary' : 'warn'" (click)="toggleCamera()">
+        {{ isCameraOn ? 'Camera On' : 'Camera Off' }}
+      </button>
+
+      <button mat-raised-button color="accent" (click)="autoCalibrate()">Auto Calibrate CMD</button>
+    </div>
+  </mat-card-content>
+</mat-card>
 
 </div>
 

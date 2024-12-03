@@ -39,3 +39,13 @@
   margin-top: 10px;
   gap: 15px;
 }
+.angle-display {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.position-value {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #1e88e5;
+}

@@ -67,3 +67,4 @@ export class InputsOutputsComponent {
       output.state = output.state === 'ON' ? 'OFF' : 'ON';
     }
 }
+

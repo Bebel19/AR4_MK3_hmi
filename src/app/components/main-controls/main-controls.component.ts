@@ -64,8 +64,11 @@ export class MainControlsComponent {
   conditionType: string = 'Input';
   conditionTypes: string[] = ['Input', 'Output', 'Position'];
   logicCondition: string = '';
-
-
+  isCameraOn: boolean = false;
+  // for status indicators
+  isRobotConnected: boolean = true;
+  isProgramRunning: boolean = false;
+  isCalibrating: boolean = false;
 
   // Helper function to access position safely
   getAxis(axis: string): keyof typeof this.position {
@@ -152,5 +155,10 @@ export class MainControlsComponent {
 
   autoCalibrate() {
     console.log('Automatic calibration started');// TODO
+  }
+
+  toggleCamera() {
+    this.isCameraOn = !this.isCameraOn;
+    console.log(this.isCameraOn ? 'Camera turned ON' : 'Camera turned OFF');
   }
 }
