@@ -1,27 +1,68 @@
-# AR4MK3Hmi
+# 🤖 AR4 MK3 HMI – Human-Machine Interface
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+> Interface Web pour le pilotage du bras robotique AR4 MK3
 
-## Development server
+![Angular](https://img.shields.io/badge/built%20with-Angular-red)
+![Status](https://img.shields.io/badge/status-en%20cours-yellow)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🎯 Objectif
 
-## Code scaffolding
+Cette interface Angular permet de contrôler et configurer un bras robotique AR4 MK3. Elle offre un accès aux paramètres critiques de la cinématique, ainsi qu'aux entrées/sorties pour une utilisation en laboratoire ou en production.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🧠 Fonctionnalités clés
 
-## Build
+- Configuration des axes et paramètres de Denavit-Hartenberg
+- Importation de fichiers G-code
+- Contrôle moteur (positions, vitesses...)
+- Interface I/O : entrées numériques, sorties numériques
+- Paramétrage des broches (pins)
+- WebSocket via `ngx-socket-io` pour communication temps réel
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Stack technique
 
-## Running unit tests
+- **Frontend** : Angular 18.2, Angular Material, Flex Layout
+- **Backend SSR** : Express.js
+- **Communication** : WebSockets (ngx-socket-io)
+- **Langages** : TypeScript, HTML, SCSS
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚧 Statut
 
-## Running end-to-end tests
+🟡 En cours de développement. Plusieurs fonctionnalités sont opérationnelles, mais le merge des branches principales reste à finaliser.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📁 Structure du projet
 
-## Further help
+```bash
+ar4-mk3-hmi/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── pages/
+│   └── assets/
+├── dist/
+├── angular.json
+├── package.json
+└── README.md
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## ▶️ Lancer le projet en local
+
+```bash
+git clone https://github.com/Bebel19/AR4_MK3_hmi.git
+cd AR4_MK3_hmi
+npm install
+ng serve
+```
+Accès via `http://localhost:4200`
+
+## 📷 Démo (à venir)
+
+<!-- ![Demo GIF](https://raw.githubusercontent.com/Bebel19/AR4_MK3_hmi/main/assets/demo.gif) -->
+
+## 📌 Liens utiles
+
+- [Documentation AR4 MK3 (site officiel)](https://www.annexrobotics.com/ar4)
+
+---
+
+📫 **Contact** : [othman@belgnaoui.fr](mailto:othman@belgnaoui.fr) · [LinkedIn](https://www.linkedin.com/in/othman-belgnaoui-79848340/)
