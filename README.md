@@ -63,6 +63,4 @@ Accès via `http://localhost:4200`
 
 - [Documentation AR4 MK3 (site officiel)](https://www.annexrobotics.com/ar4)
 
----
 
-📫 **Contact** : [othman@belgnaoui.fr](mailto:othman@belgnaoui.fr) · [LinkedIn](https://www.linkedin.com/in/othman-belgnaoui-79848340/)
