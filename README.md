@@ -27,7 +27,7 @@ Cette interface Angular permet de contrôler et configurer un bras robotique AR4
 
 ## 🚧 Statut
 
-🟡 En cours de développement. Plusieurs fonctionnalités sont opérationnelles, mais le merge des branches principales reste à finaliser.
+🟡 En cours de développement. Plusieurs fonctionnalités sont opérationnelles, mais le merge des branches beta reste à finaliser.
 
 ## 📁 Structure du projet
 
