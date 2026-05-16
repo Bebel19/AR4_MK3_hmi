@@ -1,4 +1,4 @@
-# 🤖 AR4 MK3 HMI – Human-Machine Interface
+# AR4 MK3 HMI – Human-Machine Interface
 
 > Interface Web pour le pilotage du bras robotique AR4 MK3
 
